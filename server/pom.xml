@@ -31,7 +31,7 @@
     <artifactsDir>target/dist</artifactsDir>
   </properties>
 
-  <name>filebroless</name>
+  <name>filebroless-server</name>
   <description>Filebroless - Simple HTTP File Browser</description>
   <inceptionYear>2022</inceptionYear>
   <url>https://github.com/passfortless/filebroless</url>
@@ -285,15 +285,15 @@
                     <type>NATIVE_IMAGE</type>
                     <artifacts>
                       <artifact>
-                        <path>{{artifactsDir}}/{{distributionName}}-server-{{projectVersion}}-linux-x86_64.tar.gz</path>
+                        <path>{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-linux-x86_64.tar.gz</path>
                         <platform>linux-x86_64</platform>
                       </artifact>
                       <artifact>
-                        <path>{{artifactsDir}}/{{distributionName}}-server-{{projectVersion}}-windows-x86_64.zip</path>
+                        <path>{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-windows-x86_64.zip</path>
                         <platform>windows-x86_64</platform>
                       </artifact>
                       <artifact>
-                        <path>{{artifactsDir}}/{{distributionName}}-server-{{projectVersion}}-osx-x86_64.zip</path>
+                        <path>{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-osx-x86_64.zip</path>
                         <platform>osx-x86_64</platform>
                       </artifact>
                     </artifacts>
