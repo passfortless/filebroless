@@ -1,0 +1,37 @@
+<table class="table is-fullwidth is-striped is-hoverable">
+  <thead>
+    <tr>
+      <th><abbr title="# No"># No</abbr></th>
+      <th><abbr title="Flags">Flags</abbr></th>
+      <th><abbr title="Size">File size</abbr></th>
+      <th><abbr title="Last Modified">Last Modified</abbr></th>
+      <th><abbr title="Name">Name</abbr></th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let file of fileMetadatas$ | async; trackBy:trackByFn, index as i">
+      <tr>
+        <th>{{ i + 1 }}</th>
+        <td>{{ file.directory ? 'd':'' }}{{ file.read ? 'r':'' }}{{ file.write ? 'w':'' }}{{ file.execute ? 'x':'' }}
+        </td>
+        <td>{{ (file.length / 1024) | number: '1.2-2' }} KB</td>
+        <td>{{ file.lastModified | date: 'medium' }}</td>
+        <td>
+          <ng-container *ngIf="file.directory">
+            <a (click)="listFolder(file.name)" title="{{ file.name }}">
+              <span class="icon-text">
+                <span class="icon has-text-warning">
+                  <i class="fas fa-folder-open"></i>
+                </span>
+                <span>{{ file.name }}</span>
+              </span>
+            </a>
+          </ng-container>
+          <ng-container *ngIf="!file.directory">
+            <a (click)="downloadFile(file.name)" title="{{ file.name }}">{{ file.name }}</a>
+          </ng-container>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
