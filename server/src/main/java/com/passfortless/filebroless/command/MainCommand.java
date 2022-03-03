@@ -9,7 +9,7 @@ import picocli.CommandLine.Parameters;
 import picocli.CommandLine.ParseResult;
 
 @CommandLine.Command(name = "filebroless", mixinStandardHelpOptions = true, showEndOfOptionsDelimiterInUsageHelp = true, version = {
-                "@|yellow File Browser 1.0 (c) 2022|@",
+                "@|yellow Simple HTTP File Browser 1.0 (c) 2022|@",
                 "   JVM: ${java.version} (${java.vendor} ${java.vm.name} ${java.vm.version})",
                 "   OS: ${os.name} ${os.version} ${os.arch}" })
 public class MainCommand {

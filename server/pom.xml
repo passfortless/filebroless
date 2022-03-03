@@ -281,7 +281,7 @@
                   </github>
                 </release>
                 <distributions>
-                  <filebroless>
+                  <filebroless-server>
                     <type>NATIVE_IMAGE</type>
                     <artifacts>
                       <artifact>
@@ -297,7 +297,7 @@
                         <platform>osx-x86_64</platform>
                       </artifact>
                     </artifacts>
-                  </filebroless>
+                  </filebroless-server>
                 </distributions>
               </jreleaser>
             </configuration>
