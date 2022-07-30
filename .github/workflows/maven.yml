@@ -36,13 +36,14 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu'
+          cache: 'maven'
 
-      - name: 'Cache Maven packages'
-        uses: actions/cache@v2.1.7
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+      #- name: 'Cache Maven packages'
+      #  uses: actions/cache@v3
+      #  with:
+      #    path: ~/.m2
+      #    key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+      #    restore-keys: ${{ runner.os }}-m2
 
       - name: 'Build'
         run: ./mvnw -B --file pom.xml verify

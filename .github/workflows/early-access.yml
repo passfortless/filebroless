@@ -42,7 +42,7 @@ jobs:
       - name: 'Set up Graalvm'
         uses: graalvm/setup-graalvm@v1
         with:
-          version: '22.0.0.2'
+          version: '22.2.0'
           java-version: '17'
           components: 'native-image'
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,7 +60,7 @@ jobs:
         run: brew install upx
 
       - name: 'Cache Maven packages'
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -108,13 +108,14 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu'
+          cache: 'maven'
 
-      - name: 'Cache Maven packages'
-        uses: actions/cache@v2.1.7
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+      #- name: 'Cache Maven packages'
+      #  uses: actions/cache@v3
+      #  with:
+      #    path: ~/.m2
+      #    key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+      #    restore-keys: ${{ runner.os }}-m2
 
       - name: 'Release with JReleaser'
         env:
