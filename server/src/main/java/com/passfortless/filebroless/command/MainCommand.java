@@ -50,10 +50,10 @@ public class MainCommand {
                                 .browserName(browserName).build();
         }
 
-        public static String getServerPort(ParseResult parseResult) {
-                String portValue = parseResult.hasMatchedOption(PARAMETER_PORT)
+        public static Integer getServerPort(ParseResult parseResult) {
+                Integer portValue = parseResult.hasMatchedOption(PARAMETER_PORT)
                                 ? parseResult.matchedOption(PARAMETER_PORT).getValue()
-                                : DEFAULT_PORT;
+                                : Integer.parseInt(DEFAULT_PORT);
                 return portValue;
         }
 

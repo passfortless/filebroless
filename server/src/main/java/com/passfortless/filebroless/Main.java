@@ -55,8 +55,8 @@ public class Main {
 
     static void startApplication(ParseResult parseResult) {
         // setup port
-        String portValue = MainCommand.getServerPort(parseResult);
-        System.setProperty(MainCommand.PARAMETER_PORT, portValue);
+        Integer portValue = MainCommand.getServerPort(parseResult);
+        System.setProperty(MainCommand.PARAMETER_PORT, portValue.toString());
 
         // confirm that working directory is valid
         String workingDirectory = MainCommand.getWorkingDirectory(parseResult);
